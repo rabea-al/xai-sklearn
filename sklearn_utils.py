@@ -3,35 +3,36 @@ from xai_components.base import InArg, OutArg, InCompArg, Component, BaseCompone
 @xai_component
 class SKLearnLoadDataset(Component):
     """
-    Fetches a specified toy dataset from sklearn's dataset module.
+    Fetches a specified dataset from sklearn's dataset module.
 
     #### Reference:
-    - [sklearn toy datasets](https://scikit-learn.org/stable/datasets/toy_dataset.html)
+    - [sklearn datasets](https://scikit-learn.org/stable/datasets/toy_dataset.html)
 
     ##### inPorts:
-    - dataset_name: The name of the dataset to be loaded.
+    - dataset_name: The name of the dataset to be loaded. Provide the name without the 'load_' prefix (e.g., 'iris', 'digits').
 
     ##### outPorts:
-    - dataset: The loaded sklearn toy dataset.
+    - dataset: The loaded sklearn dataset, which includes data and target.
 
     """
     dataset_name: InCompArg[str]
     dataset: OutArg[any]
 
     def execute(self, ctx) -> None:
-
         from sklearn import datasets
 
-        # If the name is already prefixed with "load_", use it as is. Otherwise, add the prefix.
+        # Determine the function name to load the requested dataset
         name = self.dataset_name.value if self.dataset_name.value.startswith("load_") else f"load_{self.dataset_name.value}"
-        
+        print(f"Requesting dataset: {self.dataset_name.value}")
+
+        # Attempt to load the dataset
         try:
             load_func = getattr(datasets, name)
+            print(f"Loading the '{self.dataset_name.value}' dataset...")
+            self.dataset.value = load_func()
+            print(f"'{self.dataset_name.value}' dataset loaded successfully.")
         except AttributeError:
             raise ValueError(f"No dataset named '{name}' found in sklearn.datasets")
-        
-        self.dataset.value = load_func()
-
 
 @xai_component
 class SKLearnTrainTestSplit(Component):
@@ -148,3 +149,77 @@ class CSVToSKLearnDataset(Component):
         
         print(f"Data shape: {data.shape}, Target shape: {target.shape}")
 
+@xai_component
+class SKLearnModelTraining(Component):
+    """
+    Trains a specified scikit-learn model using the provided training data.
+
+    #### Reference:
+    - [sklearn estimators](https://scikit-learn.org/stable/user_guide.html)
+
+    ##### inPorts:
+    - X_train: Training data features.
+    - y_train: Training data targets.
+    - model: The scikit-learn model to train.
+
+    ##### outPorts:
+    - trained_model: The trained scikit-learn model.
+    """
+
+    X_train: InCompArg[any]
+    y_train: InCompArg[any]
+    model: InCompArg[any]
+    trained_model: OutArg[any]
+
+    def execute(self, ctx) -> None:
+        print("Training model...")
+        self.trained_model.value = self.model.value.fit(self.X_train.value, self.y_train.value)
+        print("Training complete.")
+
+
+@xai_component
+class SKLearnClassificationEvaluation(Component):
+    """
+    Evaluates a trained scikit-learn classification model using testing data, providing key metrics such as accuracy, precision, recall, and F1 score.
+
+    #### Reference:
+    - [sklearn.metrics](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics)
+
+    ##### inPorts:
+    - X_test: Testing data features.
+    - y_test: Testing data targets.
+    - trained_model: The trained scikit-learn classification model.
+    - average_method: The averaging method for multi-class classification metrics ('micro', 'macro', 'weighted'). Default is 'macro'.
+
+    ##### outPorts:
+    - evaluation_metrics: The performance metrics of the model on testing data.
+    """
+
+    X_test: InCompArg[any]
+    y_test: InCompArg[any]
+    trained_model: InCompArg[any]
+    average_method: InArg[str] = 'macro'  # Set default value directly here
+    evaluation_metrics: OutArg[dict]
+
+    def execute(self, ctx) -> None:
+        from sklearn import metrics
+
+        print("Evaluating classification model...")
+        predictions = self.trained_model.value.predict(self.X_test.value)
+        accuracy = metrics.accuracy_score(self.y_test.value, predictions)
+        precision, recall, f1_score, _ = metrics.precision_recall_fscore_support(
+            self.y_test.value, predictions, average=self.average_method.value
+        )
+
+        self.evaluation_metrics.value = {
+            'accuracy': accuracy,
+            'precision': precision,
+            'recall': recall,
+            'f1_score': f1_score
+        }
+
+        print("\nEvaluation Metrics:")
+        print(f"Accuracy : {accuracy:.4f}")
+        print(f"Precision: {precision.mean():.4f} (Average)")
+        print(f"Recall   : {recall.mean():.4f} (Average)")
+        print(f"F1 Score : {f1_score.mean():.4f} (Average)")
