@@ -5,7 +5,7 @@ description = "A library of components for integrating scikit-learn models, data
 authors = [{ name = "XpressAI", email = "eduardo@xpress.ai" }]
 license = "Apache-2.0"
 readme = "readme.md"
-repository = "https://github.com/yourrepo/sklearn-xai-components-library"
+repository = "https://github.com/XpressAI/xai-sklearn"
 keywords = ["xircuits", "scikit-learn", "machine learning", "data preprocessing", "model training", "model evaluation"]
 
 # Xircuits-specific configurations
