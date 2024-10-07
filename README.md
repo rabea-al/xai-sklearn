@@ -1,7 +1,4 @@
 
-
-
-
 <p align="center">
   <a href="https://github.com/XpressAI/xircuits/tree/master/xai_components#xircuits-component-library-list">Component Libraries</a> •
   <a href="https://github.com/XpressAI/xircuits/tree/master/project-templates#xircuits-project-templates-list">Project Templates</a>
@@ -13,9 +10,11 @@
   <a href="https://github.com/XpressAI/xircuits/blob/master/CONTRIBUTING.md">Contribute</a> •
   <a href="https://www.xpress.ai/blog/">Blog</a> •
   <a href="https://discord.com/invite/vgEg2ZtxCw">Discord</a>
+  
+<p align="center">
+<img src= https://github.com/user-attachments/assets/2eb68c60-d3b6-4209-8297-903874db8ab5
+" width="450"/>
 </p>
-
-<
 
 <p align="center"><i>Xircuits Component Library for integrating scikit-learn models, datasets, and evaluation tools.</i></p>
 
