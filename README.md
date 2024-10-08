@@ -1,66 +1,111 @@
-# SKLearn XAI Components Library
 
-This library provides a collection of components for working with scikit-learn models, datasets, and evaluation tools within the XAI framework. It includes components for loading datasets, data preprocessing, model training, evaluation, and various machine learning algorithms.
+
+
+
+<p align="center">
+  <a href="https://github.com/XpressAI/xircuits/tree/master/xai_components#xircuits-component-library-list">Component Libraries</a> •
+  <a href="https://github.com/XpressAI/xircuits/tree/master/project-templates#xircuits-project-templates-list">Project Templates</a>
+  <br>
+  <a href="https://xircuits.io/">Docs</a> •
+  <a href="https://xircuits.io/docs/Installation">Install</a> •
+  <a href="https://xircuits.io/docs/category/tutorials">Tutorials</a> •
+  <a href="https://xircuits.io/docs/category/developer-guide">Developer Guides</a> •
+  <a href="https://github.com/XpressAI/xircuits/blob/master/CONTRIBUTING.md">Contribute</a> •
+  <a href="https://www.xpress.ai/blog/">Blog</a> •
+  <a href="https://discord.com/invite/vgEg2ZtxCw">Discord</a>
+</p>
+
+<p align="center">
+<img src= https://github.com/user-attachments/assets/2eb68c60-d3b6-4209-8297-903874db8ab5
+" width="450"/>
+</p>
+
+<p align="center"><i>Xircuits Component Library for integrating scikit-learn models, datasets, and evaluation tools.</i></p>
+
+---
+
+## Welcome to the SKLearn XAI Components Library
+
+The **SKLearn XAI Components Library** provides a simple and intuitive way to integrate **scikit-learn** machine learning models, datasets, and evaluation tools within the **XAI**  framework. With this library, you can easily manage the end-to-end workflow for data handling, model training, and evaluation using scikit-learn's extensive set of algorithms and features.
+
+In this guide, you will find the steps to install the library, set up a workflow, and get started with training and evaluating machine learning models.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Getting Started with SKLearn XAI Components](#getting-started-with-sklearn-xai-components)
+  - [Example Workflow: RandomForestClassifier](#example-workflow-randomforestclassifier)
+- [Components Overview](#components-overview)
+  - [Dataset Handling](#dataset-handling)
+  - [Data Preprocessing](#data-preprocessing)
+  - [Model Training](#model-training)
+  - [Model Evaluation](#model-evaluation)
+- [Contributing](#contributing)
 
 ## Prerequisites
 
-- Python 3.8 or higher
-- scikit-learn
-- pandas (for CSV data handling)
+Before using this library, you’ll need the following:
+
+1. **Python 3.8** or higher
+2. **scikit-learn**: Core machine learning algorithms
+3. **pandas**: For handling CSV and tabular data
+4. **Xircuits**: To integrate the components into your workflows
+
+
 
 ## Installation
 
-You can install the required libraries using pip:
+To use this component library, ensure that you have an existing [Xircuits setup](https://xircuits.io/docs/main/Installation). You can then install the SKLearn library using the [component library interface](https://xircuits.io/docs/component-library/installation#installation-using-the-xircuits-library-interface), or through the CLI using:
 
-```bash
-pip install -r requirements.txt
+```
+xircuits install sklearn
 ```
 
-To use this component library, simply copy the directory / clone or submodule the repository to your working Xircuits project directory.
+You can also do it manually by cloning and installing it.
 
-## Components Overview
+```bash
+# To clone the repository into your Xircuits project directory
+git clone https://github.com/XpressAI/xai-sklearn.git xai_components/xai_sklearn
 
-The library includes a variety of components categorized into dataset handling, data preprocessing, model training, and model evaluation.
+# Install required dependencies
+pip install -r xai_components/xai_sklearn/requirements.txt
+```
 
-### Dataset Handling
+## Getting Started with SKLearn XAI Components
 
-- **`SKLearnLoadDataset`**: Fetches datasets from scikit-learn's dataset collection.
-- **`CSVToSKLearnDataset`**: Converts a CSV file into a format compatible with scikit-learn datasets.
 
-### Data Preprocessing
 
-- **`SKLearnTrainTestSplit`**: Splits datasets into training and testing sets.
+Now that you have installed the required libraries and components, you can begin using the SKLearn XAI Components Library to build machine learning workflows in Xircuits. Please follow the documentation and examples provided in the library to learn how to create, customize, and manage machine learning components using SKLearn XAI.
 
-### Model Training
 
-- **`SKLearnModelTraining`**: Trains a specified scikit-learn model using provided training data.
-- **`SKLearnRandomForestClassifier`**: Initializes a RandomForestClassifier model.
-- **`SKLearnLogisticRegression`**: Initializes a LogisticRegression model.
-- **`SKLearnSVC`**: Initializes a Support Vector Classifier (SVC) model.
-- **`SKLearnKNeighborsClassifier`**: Initializes a KNeighborsClassifier model.
-- **`SKLearnDecisionTreeClassifier`**: Initializes a DecisionTreeClassifier model.
-- **`SKLearnGradientBoostingClassifier`**: Initializes a GradientBoostingClassifier model.
-- **`SKLearnSVR`**: Initializes a Support Vector Regression (SVR) model.
-- **`SKLearnMultinomialNB`**: Initializes a Multinomial Naive Bayes (MultinomialNB) model.
-- **`SKLearnRidgeRegression`**: Initializes a Ridge Regression model.
-- **`SKLearnKMeans`**: Initializes a KMeans clustering model.
+## Try the Example
 
-### Model Evaluation
+We have provided an example workflow to help you get started with the SKLearn XAI Components Library. Give it a try and see how you can create a custom machine learning workflow for your projects.
 
-- **`SKLearnClassificationEvaluation`**: Evaluates a trained scikit-learn classification model using testing data.
+### Train Evaluate
 
-## Usage
+This example demonstrates a machine learning workflow in Xircuits using the SKLearn XAI Components Library. It creates a pipeline for loading the Iris dataset, splitting it, training a RandomForestClassifier, and evaluating its performance
 
-Each component can be integrated into your XAI workflows as needed. For instance, to train a RandomForestClassifier model:
 
-1. Load your dataset using `SKLearnLoadDataset` or `CSVToSKLearnDataset`.
-2. Split the dataset into training and testing sets with `SKLearnTrainTestSplit`.
-3. Initialize the RandomForestClassifier model using `SKLearnRandomForestClassifier`.
-4. Train the model with `SKLearnModelTraining` using the training data.
-5. Evaluate the model's performance on the test set using `SKLearnClassificationEvaluation`.
+## Components Library
 
-Refer to the component documentation for detailed usage instructions and parameter explanations.
+The SKLearn XAI Components Library offers a variety of components designed to facilitate every stage of the machine learning process. You are encouraged to explore these components and consult their documentation to enhance your understanding and application in building effective machine learning workflows.
+
 
 ## Contributing
 
-We welcome contributions to this library. If you have suggestions for new components or improvements to existing ones, please open an issue or submit a pull request.
+We welcome contributions to the **SKLearn XAI Components Library**! If you would like to contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Open a pull request with a detailed description of your changes.
+
+Please feel free to suggest new components, improvements, or optimizations. If you encounter any issues or have ideas for enhancements, you can open an issue in the repository.
+
+---
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
