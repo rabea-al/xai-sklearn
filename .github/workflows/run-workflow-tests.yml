@@ -5,10 +5,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: "*"
+  workflow_dispatch:
 
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
     env:
       TEST_XIRCUITS: |
         examples/TrainEvaluate.xircuits
@@ -17,7 +22,17 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Install xircuits
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Create virtual environment
+      run: |
+        python -m venv venv
+        echo "${{ github.workspace }}/venv/bin" >> $GITHUB_PATH
+
+    - name: Install xircuits in virtual environment
       run: pip install xircuits
 
     - name: Set Environment Variables
@@ -33,13 +48,17 @@ jobs:
         fi
 
     - name: List Xircuits
-      run: xircuits list 
+      run: xircuits list
 
     - name: Clone Repository
       run: |
-        # as of 1.9, xai_pytorch still lives in the base xircuits installation
         rm -rf ${{ env.COMPONENT_LIBRARY_PATH }}
-        git clone -b ${{ env.BRANCH_NAME }} https://github.com/${{ github.repository }} ${{ env.COMPONENT_LIBRARY_PATH }}
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          REPO_URL="${{ github.event.pull_request.head.repo.clone_url }}"
+        else
+          REPO_URL="https://github.com/${{ github.repository }}"
+        fi
+        git clone -b ${{ env.BRANCH_NAME }} $REPO_URL ${{ env.COMPONENT_LIBRARY_PATH }}
 
     - name: Install Component Library
       run: |
@@ -49,7 +68,7 @@ jobs:
         else
           echo "requirements.txt not found."
         fi
-
+          
     - name: Test .xircuits Workflows
       run: |
         export PYTHONPATH="${GITHUB_WORKSPACE}:${PYTHONPATH}"
@@ -93,7 +112,7 @@ jobs:
 
     - name: Upload log file
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: ${{ env.LIBRARY_NAME }}-validation-workflow
+        name: ${{ env.LIBRARY_NAME }}-validation-workflow-${{ matrix.python-version }}
         path: ${{ github.workspace }}/workflow_logs.txt
