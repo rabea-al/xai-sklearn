@@ -33,7 +33,7 @@
 - [Installation](#installation)  
 
 ## Xircuits Component Library for SkLearn
-This library enables seamless integration of scikit-learn's machine learning models, datasets, and evaluation tools into Xircuits, streamlining data workflows, model training, and performance evaluation."
+This library enables seamless integration of scikit-learn's machine learning models, datasets, and evaluation tools into Xircuits, streamlining data workflows, model training, and performance evaluation.
 
 ## Preview
 
@@ -55,60 +55,60 @@ Before you begin, you will need the following:
 ### SKLearnRandomForestClassifier Component:
 Initializes a RandomForestClassifier for high-accuracy classification tasks, using specified or default parameters.
 
-<img src="https://github.com/user-attachments/assets/93489276-7c1d-4db1-ab9c-25ca6b027f0b" alt="SKLearnRandomForestClassifier" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/93489276-7c1d-4db1-ab9c-25ca6b027f0b" alt="SKLearnRandomForestClassifier" width="200" height="75" />
 
 #### SKLearnLogisticRegression Component:  
 Initializes a LogisticRegression model, widely used for binary classification and multiclass tasks using a one-vs-rest strategy.
 
-<img src="https://github.com/user-attachments/assets/c44b7bf7-3126-45db-875e-3fcc85d1a863" alt="SKLearnLogisticRegression" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/c44b7bf7-3126-45db-875e-3fcc85d1a863" alt="SKLearnLogisticRegression" width="200" height="75" />
 
 
 ### SKLearnSVC Component:  
 Initializes an Support Vector Classifier (SVC), effective in high-dimensional spaces and suitable for cases with more features than samples.
 
-<img src="https://github.com/user-attachments/assets/c22f156a-9556-40be-93e2-576f6a0f9879" alt="SKLearnSVC" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/c22f156a-9556-40be-93e2-576f6a0f9879" alt="SKLearnSVC" width="200" height="75" />
 
 
 ### SKLearnKNeighborsClassifier Component:  
 Initializes a KNeighborsClassifier, an instance-based learning model that classifies data based on stored training instances without building a generalized model.
 
-<img src="https://github.com/user-attachments/assets/b9ba11f9-0679-4bc1-ac66-db89ee620d4a" alt="SKLearnKNeighborsClassifier" width="200" height="75"/>
+<p align="center"><img src="https://github.com/user-attachments/assets/b9ba11f9-0679-4bc1-ac66-db89ee620d4a" alt="SKLearnKNeighborsClassifier" width="200" height="75"/>
 
 
 ### SKLearnDecisionTreeClassifier Component:  
 Initializes a DecisionTreeClassifier, a versatile model for classification and regression that uses a tree structure to make decisions through yes/no questions.
 
-<img src="https://github.com/user-attachments/assets/781dddf4-1d5e-4794-a3f7-59a961b4eba8" alt="SKLearnDecisionTreeClassifier" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/781dddf4-1d5e-4794-a3f7-59a961b4eba8" alt="SKLearnDecisionTreeClassifier" width="200" height="75" />
 
 
 ### SKLearnGradientBoostingClassifier Component:  
 Initializes a GradientBoostingClassifier that builds models additively in stages, optimizing differentiable loss functions for improved accuracy.
 
-<img src="https://github.com/user-attachments/assets/4db62a79-4f1a-4662-8e51-bea5b1639395" alt="SKLearnGradientBoostingClassifier" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/4db62a79-4f1a-4662-8e51-bea5b1639395" alt="SKLearnGradientBoostingClassifier" width="200" height="75" />
 
 
 ### SKLearnSVR Component:
 Initializes a Support Vector Regression (SVR) model, applying Support Vector Machines (SVM) principles to regression with customizable kernels for handling complex datasets.
 
-<img src="https://github.com/user-attachments/assets/4a41da8a-d8a9-4702-8825-9926b7f33e44" alt="SKLearnSVC" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/4a41da8a-d8a9-4702-8825-9926b7f33e44" alt="SKLearnSVC" width="200" height="75" />
 
 
 ### SKLearnMultinomialNB Component:  
 Initializes a MultinomialNB model, ideal for discrete features like word counts and effective for multi-class text classification.
 
-<img src="https://github.com/user-attachments/assets/570706cd-80c1-4563-8731-cea52d814e3a" alt="SKLearnMultinomialNB" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/570706cd-80c1-4563-8731-cea52d814e3a" alt="SKLearnMultinomialNB" width="200" height="75" />
 
 
 ### SKLearnRidgeRegression Component:  
 Initializes a Ridge Regression model that mitigates overfitting by penalizing large coefficients, enhancing the robustness of linear regression.
 
-<img src="https://github.com/user-attachments/assets/d44db83d-56d1-4326-8115-8bd0857c1cf2" alt="SKLearnRidgeRegression" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/d44db83d-56d1-4326-8115-8bd0857c1cf2" alt="SKLearnRidgeRegression" width="200" height="75" />
 
 
 ### SKLearnKMeans Component:  
 Initializes a KMeans model, an unsupervised algorithm that partitions data into k clusters by assigning each point to the nearest cluster mean.
 
-<img src="https://github.com/user-attachments/assets/76413bd8-e5fd-4fe7-8161-a477497e3545" alt="SKLearnKMeans" width="200" height="75" />
+<p align="center"><img src="https://github.com/user-attachments/assets/76413bd8-e5fd-4fe7-8161-a477497e3545" alt="SKLearnKMeans" width="200" height="75" />
 
 ## Try the Examples
 
