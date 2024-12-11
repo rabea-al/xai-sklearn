@@ -24,35 +24,98 @@
 
 ---
 
-## Welcome to the SKLearn XAI Components Library
-
-The **SKLearn XAI Components Library** provides a simple and intuitive way to integrate **scikit-learn** machine learning models, datasets, and evaluation tools within the **XAI**  framework. With this library, you can easily manage the end-to-end workflow for data handling, model training, and evaluation using scikit-learn's extensive set of algorithms and features.
-
-In this guide, you will find the steps to install the library, set up a workflow, and get started with training and evaluating machine learning models.
-
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Getting Started with SKLearn XAI Components](#getting-started-with-sklearn-xai-components)
-  - [Example Workflow: RandomForestClassifier](#example-workflow-randomforestclassifier)
-- [Components Overview](#components-overview)
-  - [Dataset Handling](#dataset-handling)
-  - [Data Preprocessing](#data-preprocessing)
-  - [Model Training](#model-training)
-  - [Model Evaluation](#model-evaluation)
-- [Contributing](#contributing)
+- [Preview](#preview)  
+- [Prerequisites](#prerequisites)  
+- [Main Components Library](#main-components-library)   
+- [Try the Examples](#try-the-examples)  
+- [Installation](#installation)  
+
+## Xircuits Component Library for SkLearn
+This library enables seamless integration of scikit-learn's machine learning models, datasets, and evaluation tools into Xircuits, streamlining data workflows, model training, and performance evaluation.
+
+## Preview
+
+### The Example:
+![sklearn_example](https://github.com/user-attachments/assets/565a4919-8b67-4ced-9ad5-47a2645bf3c6)
+
+### The Result:
+![sklearn_result](https://github.com/user-attachments/assets/c2bc95b4-41f9-4d8d-a1a3-9d6a9097d3c9)
 
 ## Prerequisites
 
-Before using this library, you’ll need the following:
+Before you begin, you will need the following:
 
-1. **Python 3.8** or higher
-2. **scikit-learn**: Core machine learning algorithms
-3. **pandas**: For handling CSV and tabular data
-4. **Xircuits**: To integrate the components into your workflows
+1. Python3.9+.
+2. Xircuits.
+
+## Main Components Library
+
+### SKLearnRandomForestClassifier Component:
+Initializes a RandomForestClassifier for high-accuracy classification tasks, using specified or default parameters.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/93489276-7c1d-4db1-ab9c-25ca6b027f0b" alt="SKLearnRandomForestClassifier" width="200" height="75" />
+
+#### SKLearnLogisticRegression Component:  
+Initializes a LogisticRegression model, widely used for binary classification and multiclass tasks using a one-vs-rest strategy.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/c44b7bf7-3126-45db-875e-3fcc85d1a863" alt="SKLearnLogisticRegression" width="200" height="75" />
 
 
+### SKLearnSVC Component:  
+Initializes an Support Vector Classifier (SVC), effective in high-dimensional spaces and suitable for cases with more features than samples.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/c22f156a-9556-40be-93e2-576f6a0f9879" alt="SKLearnSVC" width="200" height="75" />
+
+
+### SKLearnKNeighborsClassifier Component:  
+Initializes a KNeighborsClassifier, an instance-based learning model that classifies data based on stored training instances without building a generalized model.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/b9ba11f9-0679-4bc1-ac66-db89ee620d4a" alt="SKLearnKNeighborsClassifier" width="200" height="75"/>
+
+
+### SKLearnDecisionTreeClassifier Component:  
+Initializes a DecisionTreeClassifier, a versatile model for classification and regression that uses a tree structure to make decisions through yes/no questions.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/781dddf4-1d5e-4794-a3f7-59a961b4eba8" alt="SKLearnDecisionTreeClassifier" width="200" height="75" />
+
+
+### SKLearnGradientBoostingClassifier Component:  
+Initializes a GradientBoostingClassifier that builds models additively in stages, optimizing differentiable loss functions for improved accuracy.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/4db62a79-4f1a-4662-8e51-bea5b1639395" alt="SKLearnGradientBoostingClassifier" width="200" height="75" />
+
+
+### SKLearnSVR Component:
+Initializes a Support Vector Regression (SVR) model, applying Support Vector Machines (SVM) principles to regression with customizable kernels for handling complex datasets.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/4a41da8a-d8a9-4702-8825-9926b7f33e44" alt="SKLearnSVC" width="200" height="75" />
+
+
+### SKLearnMultinomialNB Component:  
+Initializes a MultinomialNB model, ideal for discrete features like word counts and effective for multi-class text classification.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/570706cd-80c1-4563-8731-cea52d814e3a" alt="SKLearnMultinomialNB" width="200" height="75" />
+
+
+### SKLearnRidgeRegression Component:  
+Initializes a Ridge Regression model that mitigates overfitting by penalizing large coefficients, enhancing the robustness of linear regression.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/d44db83d-56d1-4326-8115-8bd0857c1cf2" alt="SKLearnRidgeRegression" width="200" height="75" />
+
+
+### SKLearnKMeans Component:  
+Initializes a KMeans model, an unsupervised algorithm that partitions data into k clusters by assigning each point to the nearest cluster mean.
+
+<p align="center"><img src="https://github.com/user-attachments/assets/76413bd8-e5fd-4fe7-8161-a477497e3545" alt="SKLearnKMeans" width="200" height="75" />
+
+## Try the Examples
+
+We have provided an example workflow to help you get started with the Sklearn component library. Give it a try and see how you can create custom Sklearn components for your applications.
+
+### TrainEvaluate 
+Check out the `TrainEvaluate` workflow. This example uses Sklearn components to load the Iris dataset, split it into training and testing sets, and train a Random Forest model. It evaluates the model's performance with classification metrics, showcasing an end-to-end machine learning pipeline.
 
 ## Installation
 
@@ -62,50 +125,10 @@ To use this component library, ensure that you have an existing [Xircuits setup]
 xircuits install sklearn
 ```
 
-You can also do it manually by cloning and installing it.
+You can also do it manually by cloning and installing it:
 
-```bash
-# To clone the repository into your Xircuits project directory
-git clone https://github.com/XpressAI/xai-sklearn.git xai_components/xai_sklearn
-
-# Install required dependencies
-pip install -r xai_components/xai_sklearn/requirements.txt
 ```
-
-## Getting Started with SKLearn XAI Components
-
-
-
-Now that you have installed the required libraries and components, you can begin using the SKLearn XAI Components Library to build machine learning workflows in Xircuits. Please follow the documentation and examples provided in the library to learn how to create, customize, and manage machine learning components using SKLearn XAI.
-
-
-## Try the Example
-
-We have provided an example workflow to help you get started with the SKLearn XAI Components Library. Give it a try and see how you can create a custom machine learning workflow for your projects.
-
-### Train Evaluate
-
-This example demonstrates a machine learning workflow in Xircuits using the SKLearn XAI Components Library. It creates a pipeline for loading the Iris dataset, splitting it, training a RandomForestClassifier, and evaluating its performance
-
-
-## Components Library
-
-The SKLearn XAI Components Library offers a variety of components designed to facilitate every stage of the machine learning process. You are encouraged to explore these components and consult their documentation to enhance your understanding and application in building effective machine learning workflows.
-
-
-## Contributing
-
-We welcome contributions to the **SKLearn XAI Components Library**! If you would like to contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Open a pull request with a detailed description of your changes.
-
-Please feel free to suggest new components, improvements, or optimizations. If you encounter any issues or have ideas for enhancements, you can open an issue in the repository.
-
----
-
-### License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
+# base Xircuits directory  
+git clone https://github.com/XpressAI/xai-sklearn xai_components/xai_sklearn  
+pip install -r xai_components/xai_sklearn/requirements.txt  
+```
